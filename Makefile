@@ -23,15 +23,16 @@ AVR_LIBS	= /usr/local/avr/lib
 # internal configuration - DO NOT modify anything beyond this point
 SRCPREFIX = src
 OBJS	  = obj
+RELEASEDIR   = ../release
 
 
 
 # compile flags
 CFLAGS	 = -Iinclude -DDEBUG_LEVEL=0 --std=c99 -I$(AVR_INCLUDE)
-CXXFLAGS = -Iinclude -DDEBUG_LEVEL=0 -I$(AVR_INCLUDE)
+CXXFLAGS = -Iinclude -DDEBUG_LEVEL=0 -I$(AVR_INCLUDE) -g
 
 # list of object to build
-OBJECTS	 = $(addprefix $(SRCPREFIX)/, hal/gpio.o )
+OBJECTS	 = $(addprefix $(SRCPREFIX)/, hal/gpio.o utils/simulSerial.o )
 
 # command to compile .c objects
 COMPILEC = avr-gcc -c -Wall -Os -DF_CPU=$(F_CPU) $(CFLAGS) -mmcu=$(DEVICE)
@@ -43,12 +44,22 @@ help:
 	@echo "make lib .... aby zbudować bibliotekę"
 
 clean:
-	rm -fR *.o $(OBJECTS)
+	rm -fR *.o *.a $(OBJECTS)
 	
 
 lib: libalpp.a
-	avr-size $< -C --mcu=$(DEVICE)
+	avr-size $< -t
 	
+#-C --mcu=$(DEVICE)
+
+
+
+release: libalpp.a | $(RELEASEDIR)
+	@cp -v libalpp.a $(RELEASEDIR)/
+	@cp -Rv include/ $(RELEASEDIR)
+	
+$(RELEASEDIR):
+	mkdir $(RELEASEDIR)	
 dirs:
 	@if [ ! -d obj ]; then mkdir obj; fi; 
 
