@@ -25,14 +25,21 @@ SRCPREFIX = src
 OBJS	  = obj
 RELEASEDIR   = ../release
 
-
+OBJECTNAMES = utils/simulSerial hal/preg8
+HDRSTOCOPYR = hal/gpio utils/simulSerial hal/preg8
 
 # compile flags
 CFLAGS	 = -Iinclude -DDEBUG_LEVEL=0 --std=c99 -I$(AVR_INCLUDE)
 CXXFLAGS = -Iinclude -DDEBUG_LEVEL=0 -I$(AVR_INCLUDE) -g
 
 # list of object to build
-OBJECTS	 = $(addprefix $(SRCPREFIX)/, hal/gpio.o utils/simulSerial.o )
+
+PREOBJS	 = $(addsuffix .o, $(OBJECTNAMES) )
+OBJECTS	 = $(addprefix $(SRCPREFIX)/, $(PREOBJS) )
+
+
+HDRSPRERELASE = $(addsprefix include, $(HDRSTOCOPYR))
+HDRSRELEASE = $(addsuffix .h, $(HDRSPRERELASE))
 
 # command to compile .c objects
 COMPILEC = avr-gcc -c -Wall -Os -DF_CPU=$(F_CPU) $(CFLAGS) -mmcu=$(DEVICE)
@@ -45,33 +52,36 @@ help:
 
 clean:
 	rm -fR *.o *.a $(OBJECTS)
-	
+
+rclean:
+	rm -fR $(RELEASEDIR)/
+
 
 lib: libalpp.a
 	avr-size $< -t
-	
+
 #-C --mcu=$(DEVICE)
 
 
 
 release: libalpp.a | $(RELEASEDIR)
 	@cp -v libalpp.a $(RELEASEDIR)/
-	@cp -Rv include/ $(RELEASEDIR)
-	
-$(RELEASEDIR):
-	mkdir $(RELEASEDIR)	
-dirs:
-	@if [ ! -d obj ]; then mkdir obj; fi; 
+	@cp -Rv include/$(HDRSRELEASE) $(RELEASEDIR)
 
-%.o: %.cpp 
+$(RELEASEDIR):
+	mkdir $(RELEASEDIR)
+dirs:
+	@if [ ! -d obj ]; then mkdir obj; fi;
+
+%.o: %.cpp
 	$(COMPILE) $< -o $@
 
 .o.c:
 	$(COMPILEC) $< -o $@
-	
+
 .S.o:
 	$(COMPILE) -x assembler-with-cpp -c $< -o $@
-	
+
 .c.s:
 	$(COMPILE) -S $< -o $@
 
@@ -79,7 +89,7 @@ dirs:
 
 libalpp.a: $(OBJECTS)
 	avr-ar rsc $@ $^
-	
-	
-	
+
+
+
 
