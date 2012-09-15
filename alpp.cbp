@@ -40,7 +40,9 @@
 			<Add after="avr-objdump -h -S $(TARGET_OUTPUT_FILE) &gt; $(TARGET_OUTPUT_FILE).lss" />
 		</ExtraCommands>
 		<Unit filename="include/hal/gpio.h" />
+		<Unit filename="include/utils/simulSerial.h" />
 		<Unit filename="src/hal/gpio.cpp" />
+		<Unit filename="src/utils/simulSerial.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
