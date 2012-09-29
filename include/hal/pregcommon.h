@@ -52,18 +52,18 @@ class PRegCommon
 };
 
 
-/*template <class T> PRegCommon<T>::PRegCommon(volatile T& reg): regHandle(reg)
+template <class T> PRegCommon<T>::PRegCommon(volatile T& reg): regHandle(reg)
 {
   ;
-}*/
+}
 
-template <class T> void PRegCommon<T>::valWM(T &setted, T &val, T &mask))
+/*template <class T> void PRegCommon<T>::valWM(T &setted, T &val, T &mask))
 {
     T a=val&mask;
     T b=val|(~mask);
     setted=(b&setted);
     setted=a|setted;
-}
+}*/
 
 template <class T> void PRegCommon<T>::set(const T& value, const T& mask)
 {
