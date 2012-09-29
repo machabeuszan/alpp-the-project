@@ -7,7 +7,9 @@
 
 #define PREG8TYPE uint8_t
 
-
+/**
+* Class which is 8 bit variation of registry setting helper.
+*/
 class PReg8:public PRegCommon<PREG8TYPE>
 {
     public:
