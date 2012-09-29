@@ -26,7 +26,7 @@ OBJS	  = obj
 RELEASEDIR   = ../release
 
 OBJECTNAMES = utils/simulSerial hal/preg8
-HDRSTOCOPYR = hal/gpio utils/simulSerial hal/preg8
+HDRSTOCOPYR = hal/gpio utils/simulSerial hal/preg8 hal/preg16
 
 # compile flags
 CFLAGS	 = -Iinclude -DDEBUG_LEVEL=0 --std=c99 -I$(AVR_INCLUDE)
