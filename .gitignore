@@ -1,1 +1,5 @@
+/libalpp.a
 /doc/*
+*.o
+*.bak
+*~
