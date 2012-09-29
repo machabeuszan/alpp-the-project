@@ -48,18 +48,22 @@ class PRegCommon
         static T get(volatile T& reg, T& value, const T& mask);
     protected:
         volatile T& regHandle;
+        //T& valWM(T &setted, T &val, T &mask);
 };
 
 
-template <class T> PRegCommon<T>::PRegCommon(volatile T& reg): regHandle(reg)
+/*template <class T> PRegCommon<T>::PRegCommon(volatile T& reg): regHandle(reg)
 {
   ;
-}
-
-/*template <class T> void PRegCommon<T>::valWithMask(volatile T &reg, T& val, T& mask)
-{
-
 }*/
+
+template <class T> void PRegCommon<T>::valWM(T &setted, T &val, T &mask))
+{
+    T a=val&mask;
+    T b=val|(~mask);
+    setted=(b&setted);
+    setted=a|setted;
+}
 
 template <class T> void PRegCommon<T>::set(const T& value, const T& mask)
 {
@@ -68,6 +72,7 @@ template <class T> void PRegCommon<T>::set(const T& value, const T& mask)
 
 template <class T> void PRegCommon<T>::set(volatile T& reg, const T& value, const T& mask)
 {
+    //valWM(reg,value,mask);
   T a=value&mask;
   T b=value|(~mask);
   reg=(b&reg);
@@ -81,10 +86,9 @@ template <class T> T PRegCommon<T>::get(T& value, const T& mask)
 
 template <class T> T PRegCommon<T>::get(volatile T& reg, T& val, const T& mask)
 {
-  //T val=0;
+    //return valWM(val,reg,mask);
   T a=reg&mask;
   T b=reg|(~mask);
-  //val=a|(b&val);
   val=b&val;
   val=a|val;
   return val;
