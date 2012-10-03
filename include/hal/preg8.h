@@ -24,14 +24,14 @@
 */
 class PReg8:public PRegCommon<PREG8TYPE>
 {
-    public:
-	/**
-	 * Konstruktor.
-	 * Potrzebny żeby wywołać konstruktora klasy bazowej.
-	 * @param reg to rejestr na którym będzie działać klasa. PREG8TYPE to typ zdefiniowany jako uint8_t.
-	 * @see PRegCommon
-	 */
-        PReg8(volatile PREG8TYPE& reg);
+public:
+    /**
+     * Konstruktor.
+     * Potrzebny żeby wywołać konstruktora klasy bazowej.
+     * @param reg to rejestr na którym będzie działać klasa. PREG8TYPE to typ zdefiniowany jako uint8_t.
+     * @see PRegCommon
+     */
+    PReg8(volatile PREG8TYPE& reg);
 };
 
 #endif // PREG8_H
