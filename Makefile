@@ -27,8 +27,8 @@ SRCPREFIX = src
 OBJS	  = obj
 RELEASEDIR   = ../release
 
-OBJECTNAMES = utils/simulSerial hal/preg8
-HDRSTOCOPYR = hal/gpio utils/simulSerial hal/preg8 hal/preg16
+OBJECTNAMES = utils/simulSerial hal/preg8 hal/pgpopin
+HDRSTOCOPYR = hal/gpio utils/simulSerial hal/preg8 hal/preg16 hal/pgpopin
 
 # compile flags
 CFLAGS	 = -Iinclude -DDEBUG_LEVEL=0 --std=c99 -I$(AVR_INCLUDE)
@@ -54,9 +54,16 @@ help:
 
 clean:
 	rm -fR *.o *.a $(OBJECTS)
+	find -iname *~ -delete
 
 rclean:
 	rm -fR $(RELEASEDIR)/
+
+docclean:
+	rm -fR doc/*
+
+doc:
+	@doxygen
 
 
 lib: libalpp.a
