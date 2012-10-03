@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="include/hal/gpio.h" open="1" top="1" tabpos="1">
-		<Cursor position="377" topLine="0" />
+	<File name="include/hal/gpio.h" open="0" top="0" tabpos="1">
+		<Cursor position="128" topLine="0" />
 	</File>
-	<File name="include/hal/pregcommon.h" open="1" top="0" tabpos="6">
-		<Cursor position="1100" topLine="5" />
+	<File name="include/hal/onoff.h" open="0" top="0" tabpos="0">
+		<Cursor position="146" topLine="0" />
 	</File>
-	<File name="src/hal/gpio.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="0" topLine="0" />
+	<File name="include/hal/preg16.h" open="0" top="0" tabpos="0">
+		<Cursor position="125" topLine="0" />
+	</File>
+	<File name="include/hal/preg8.h" open="0" top="0" tabpos="0">
+		<Cursor position="107" topLine="0" />
+	</File>
+	<File name="include/hal/pregcommon.h" open="0" top="0" tabpos="6">
+		<Cursor position="131" topLine="0" />
+	</File>
+	<File name="include/utils/simulSerial.h" open="0" top="0" tabpos="0">
+		<Cursor position="147" topLine="0" />
+	</File>
+	<File name="src/hal/preg16.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="115" topLine="0" />
+	</File>
+	<File name="src/hal/preg8.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="146" topLine="0" />
+	</File>
+	<File name="src/utils/simulSerial.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="136" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
