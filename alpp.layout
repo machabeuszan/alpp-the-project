@@ -7,23 +7,29 @@
 	<File name="include/hal/onoff.h" open="0" top="0" tabpos="0">
 		<Cursor position="146" topLine="0" />
 	</File>
+	<File name="include/hal/pgpopin.h" open="1" top="1" tabpos="1">
+		<Cursor position="2799" topLine="49" />
+	</File>
 	<File name="include/hal/preg16.h" open="0" top="0" tabpos="0">
 		<Cursor position="125" topLine="0" />
 	</File>
 	<File name="include/hal/preg8.h" open="0" top="0" tabpos="0">
-		<Cursor position="107" topLine="0" />
+		<Cursor position="571" topLine="0" />
 	</File>
 	<File name="include/hal/pregcommon.h" open="0" top="0" tabpos="6">
-		<Cursor position="131" topLine="0" />
+		<Cursor position="3830" topLine="61" />
 	</File>
 	<File name="include/utils/simulSerial.h" open="0" top="0" tabpos="0">
 		<Cursor position="147" topLine="0" />
+	</File>
+	<File name="src/hal/pgpopin.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="810" topLine="0" />
 	</File>
 	<File name="src/hal/preg16.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="115" topLine="0" />
 	</File>
 	<File name="src/hal/preg8.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="146" topLine="0" />
+		<Cursor position="196" topLine="0" />
 	</File>
 	<File name="src/utils/simulSerial.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="136" topLine="0" />
