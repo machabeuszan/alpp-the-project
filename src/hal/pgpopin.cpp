@@ -14,12 +14,26 @@
 
 #include "hal/pgpopin.h"
 
-PGpoPin::PGpoPin(volatile uint8_t &port, const uint8_t pin, bool offState):PORT(port),DDR(*(&port-1)),PINmask(1<<pin),os(offState)
+void PGpoPin::setOn(bool value)
 {
-    activate(true);
+    value^=os;
+    PReg8::set(PORT,0xff*value,PINmask);
 }
 
+void PGpoPin::on()
+{
+    setOn(true);
+}
 
+void PGpoPin::off()
+{
+    setOn(false);
+}
+
+bool PGpoPin::isOn()
+{
+    return ((bool)(PORT&PINmask))^os;
+}
 
 void PGpoPin::activate(const bool enable)
 {

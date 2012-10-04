@@ -75,26 +75,13 @@ private:
     bool os;
 };
 
-inline void PGpoPin::setOn(bool value)
+
+inline PGpoPin::PGpoPin(volatile uint8_t &port, const uint8_t pin, bool offState):PORT(port),DDR(*(&port-1)),PINmask(1<<pin),os(offState)
 {
-    value^=os;
-    PReg8::set(PORT,0xff*value,PINmask);
+    activate(true);
 }
 
-inline bool PGpoPin::isOn()
-{
-    return ((bool)(PORT&PINmask))^os;
-}
 
-inline void PGpoPin::on()
-{
-    setOn(true);
-}
-
-inline void PGpoPin::off()
-{
-    setOn(false);
-}
 
 inline void PGpoPin::toggle()
 {
@@ -105,5 +92,8 @@ inline void PGpoPin::deactivate()
 {
 	activate(false);
 }
+
+
+
 
 #endif // PGPOPIN_H
