@@ -27,8 +27,8 @@ SRCPREFIX = src
 OBJS	  = obj
 RELEASEDIR   = ../release
 
-OBJECTNAMES = utils/simulSerial hal/preg8 hal/pgpopin
-HDRSTOCOPYR = hal/gpio utils/simulSerial hal/preg8 hal/preg16 hal/pgpopin
+OBJECTNAMES = utils/simulSerial hal/preg8 hal/pgpopin hal/pgpipin
+HDRSTOCOPYR = hal/gpio utils/simulSerial hal/preg8 hal/preg16 hal/pgpopin hal/pgpipin
 
 # compile flags
 CFLAGS	 = -Iinclude -DDEBUG_LEVEL=0 --std=c99 -I$(AVR_INCLUDE)
