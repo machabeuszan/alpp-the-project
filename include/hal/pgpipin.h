@@ -83,7 +83,10 @@ inline void PGpiPin::deactivate()
 	activate(false);
 }
 
-
+inline bool PGpiPin::state()
+{
+	return ((bool)(PIN&PINmask));
+}
 
 
 #endif // PGpiPin_H

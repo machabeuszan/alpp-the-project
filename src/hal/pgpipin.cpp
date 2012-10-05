@@ -15,7 +15,7 @@
 
 bool PGpiPin::isOn()
 {
-    return ((bool)(PIN&PINmask))^os;
+    return (state())^os;
 }
 
 void PGpiPin::activate(const bool enable)
