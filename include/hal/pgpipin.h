@@ -26,7 +26,7 @@ public:
      * Tworzymy nowy obiekt ściśle powiązany z rejestrami sprzętowymi
      * @param port jest portem do którego podłączone jest urządzenie, np PORTB, PORTC
      * @param pin to numer pinu danego portu do którego podłączone jest urządzenie zewnętrzne (wartości 0-7)
-     * @param offState domyślny stan wyłączony. Jeśli false to domyslnym stanem wyłączonym (off) jest stan niski, jeżeli true to domyślnym stanem off jest stan wysoki.
+     * @param offState domyślny stan wyłączony. Jeśli false to domyslnym stanem wyłączonym urządzenia (pinu) (off) jest stan niski, jeżeli true to domyślnym stanem off jest stan wysoki.
      */
     PGpiPin(volatile uint8_t &port, const uint8_t pin, bool offState);
 
