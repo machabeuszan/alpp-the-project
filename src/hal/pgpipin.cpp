@@ -13,12 +13,12 @@
 
 
 
-bool PGpoPin::isOn()
+bool PGpiPin::isOn()
 {
     return ((bool)(PIN&PINmask))^os;
 }
 
-void PGpoPin::activate(const bool enable)
+void PGpiPin::activate(const bool enable)
 {
     if(enable)
         PORT|=(PINmask);
