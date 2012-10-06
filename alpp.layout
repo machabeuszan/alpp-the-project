@@ -7,8 +7,8 @@
 	<File name="include/hal/onoff.h" open="0" top="0" tabpos="0">
 		<Cursor position="146" topLine="0" />
 	</File>
-	<File name="include/hal/pgpopin.h" open="1" top="1" tabpos="1">
-		<Cursor position="2799" topLine="49" />
+	<File name="include/hal/pgpopin.h" open="1" top="0" tabpos="1">
+		<Cursor position="388" topLine="0" />
 	</File>
 	<File name="include/hal/preg16.h" open="0" top="0" tabpos="0">
 		<Cursor position="125" topLine="0" />
@@ -20,10 +20,13 @@
 		<Cursor position="3830" topLine="61" />
 	</File>
 	<File name="include/utils/simulSerial.h" open="0" top="0" tabpos="0">
-		<Cursor position="147" topLine="0" />
+		<Cursor position="540" topLine="0" />
+	</File>
+	<File name="src/hal/pgpipin.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="609" topLine="0" />
 	</File>
 	<File name="src/hal/pgpopin.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="810" topLine="0" />
+		<Cursor position="569" topLine="0" />
 	</File>
 	<File name="src/hal/preg16.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="115" topLine="0" />

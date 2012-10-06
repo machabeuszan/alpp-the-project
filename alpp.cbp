@@ -41,11 +41,13 @@
 		</ExtraCommands>
 		<Unit filename="include/hal/gpio.h" />
 		<Unit filename="include/hal/onoff.h" />
+		<Unit filename="include/hal/pgpipin.h" />
 		<Unit filename="include/hal/pgpopin.h" />
 		<Unit filename="include/hal/preg16.h" />
 		<Unit filename="include/hal/preg8.h" />
 		<Unit filename="include/hal/pregcommon.h" />
 		<Unit filename="include/utils/simulSerial.h" />
+		<Unit filename="src/hal/pgpipin.cpp" />
 		<Unit filename="src/hal/pgpopin.cpp" />
 		<Unit filename="src/hal/preg16.cpp" />
 		<Unit filename="src/hal/preg8.cpp" />
