@@ -1,6 +1,6 @@
 /*---------------------------------------------+
 |                                              |
-| Name: src/hal/preg8.cpp                      |
+| Name: include/hal/pgpipin.h                  |
 |  Project: alpp                               |
 |  Author: Adrian Ciesielski                   |
 |  Creation Date: 2012-10-06                   |

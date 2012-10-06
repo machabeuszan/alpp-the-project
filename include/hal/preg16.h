@@ -1,6 +1,6 @@
 /*---------------------------------------------+
 |                                              |
-| Name: include/hal/preg16.h                    |
+| Name: include/hal/preg16.h                   |
 |  Project: alpp                               |
 |  Author: Adrian Ciesielski                   |
 |  Creation Date: 2012-08-31                   |
