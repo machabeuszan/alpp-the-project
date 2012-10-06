@@ -54,7 +54,7 @@ help:
 
 clean:
 	rm -fR *.o *.a $(OBJECTS)
-	find -iname *~ -delete
+	#find -iname *~ -delete
 
 rclean:
 	rm -fR $(RELEASEDIR)/
