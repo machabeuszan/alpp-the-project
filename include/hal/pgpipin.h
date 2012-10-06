@@ -16,7 +16,7 @@
 #include "hal/preg8.h"
 
 /**
- * Klasa General Purpose Output Pin - kontroler jednego pinu ogólnego przeznaczenia jako wejściowego.
+ * Klasa General Purpose Output Pin. Kontroler jednego pinu ogólnego przeznaczenia jako wejściowego.
  */
 class PGpiPin
 {
@@ -28,7 +28,7 @@ public:
      * @param pin to numer pinu danego portu do którego podłączone jest urządzenie zewnętrzne (wartości 0-7)
      * @param offState domyślny stan wyłączony. Jeśli false to domyslnym stanem wyłączonym urządzenia (pinu) (off) jest stan niski, jeżeli true to domyślnym stanem off jest stan wysoki.
      */
-    PGpiPin(volatile uint8_t &port, const uint8_t pin, bool offState);
+    PGpiPin(volatile uint8_t &port, const uint8_t pin, bool offState=HI);
 
 
     /**

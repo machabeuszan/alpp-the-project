@@ -20,6 +20,7 @@
 #define PREG8TYPE uint8_t
 
 /**
+* Ośmiobitowa wariacja klasy PRegCommon.
 * Klasa będąca 8 bitową wariacją klasy podstawowej PRegCommon. Służy do obsługi rejestrów 8 bitowych.
 */
 class PReg8:public PRegCommon<PREG8TYPE>

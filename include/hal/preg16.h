@@ -18,6 +18,7 @@
 #define PREG16TYPE uint16_t
 
 /**
+* Szesnastobitowa wariacja klasy PRegCommon.
 * Klasa będąca 16 bitową wariacją klasy podstawowej PRegCommon. Służy do obsługi rejestrów 16 bitowych.
 */
 class PReg16:public PRegCommon<PREG16TYPE>
