@@ -21,4 +21,9 @@ enum POnOff {
     OFF=0
 };
 
+enum PHighLo {
+	HI=~0,
+	LO=0
+};
+
 #endif // ONOFF_H_INCLUDED
