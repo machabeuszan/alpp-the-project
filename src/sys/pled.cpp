@@ -12,3 +12,33 @@
 
 #include "sys/pled.h"
 
+void PLed::blink(uint8_t n)
+{
+	for(uint8_t i=0;i<n;i++)
+	{
+		on();
+		_delay_ms(10);
+		off();
+		_delay_ms(90);
+	}
+}
+
+
+void PLed::setPercent(uint8_t percent)
+{
+	setLevel(percent*lim/100);
+}
+
+
+void PLed::poll()
+{
+	if(counter==0)
+	{
+		on();
+	}
+	if(counter==lv)
+	{
+		off();
+	}
+	++counter%=lim;
+}
