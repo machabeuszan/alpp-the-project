@@ -72,7 +72,7 @@ inline PGpiPin::PGpiPin(volatile uint8_t &port, const uint8_t pin, bool offState
 	PINmask(1<<pin),
 	os(offState)
 {
-	DDR|=(PINmask);
+	DDR&=~(PINmask);
     activate(true);
 }
 
