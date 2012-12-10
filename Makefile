@@ -28,7 +28,7 @@ OBJS	  = obj
 RELEASEDIR   = ../release
 
 OBJECTNAMES = utils/simulSerial hal/preg8 hal/pgpopin hal/pgpipin sys/pled
-HDRSTOCOPYR = hal/gpio utils/simulSerial hal/preg8 hal/preg16 hal/pgpopin hal/pgpipin sys/pled
+HDRSTOCOPYR = hal/gpio utils/simulSerial hal/preg8 hal/preg16 hal/pgpopin hal/pgpipin sys/pled utils/pcircbuffer
 
 # compile flags
 CFLAGS	 = -Iinclude -DDEBUG_LEVEL=0 --std=c99 -I$(AVR_INCLUDE)
@@ -50,20 +50,26 @@ COMPILE	 = avr-g++ -c -Wall -Os -DF_CPU=$(F_CPU) $(CXXFLAGS) -mmcu=$(DEVICE)
 
 help:
 	@echo "Jak używać:"
-	@echo "make lib .... aby zbudować bibliotekę"
+	@echo "make lib ............ aby zbudować bibliotekę"
+	@echo "make clean .......... aby wyczyścić  skompilowane obiekty"
+	@echo "make release ........ aby wyeksportować zbudowane obiekty"
+	@echo "make release_clean .. aby usunąć wyeksportowane obiekty"
+	@echo "make doc ............ aby zbudować dokumentację"
+	@echo "make doc_clean ...... aby usunąć zbudowaną dokumentację"
 
+doc: libalpp.a
+	@doxygen
+	
 clean:
 	rm -fR *.o *.a $(OBJECTS)
 	#find -iname *~ -delete
 
-rclean:
+release_clean:
 	rm -fR $(RELEASEDIR)/
 
-docclean:
+doc_clean:
 	rm -fR doc/*
 
-doc:
-	@doxygen
 
 
 lib: libalpp.a
