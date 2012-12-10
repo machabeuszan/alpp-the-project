@@ -50,13 +50,26 @@ class PCircBuffer
 		 * Obecnie, jeśli zabraknie miejsca, najstarsze dane zostają nadpisane.
 		 */
 		void append(T val);
-		//int8_t append(T &rVal);
+
+		/**
+		 * Dodaje element do bufora.
+		 * @param val jest elementem który zostanie skopiowany do pamięci bufora. Dzięki użyciu referencji oszczędzamy na jednym kopiowaniu.
+		 * Obecnie, jeśli zabraknie miejsca, najstarsze dane zostają nadpisane.
+		 */
+		void appendR(T &val);
+
 		/**
 		 * Wyciąga najstarszy element z bufora i zwalnia miejsce na nowe elementy. Jako że to jest bufor cykliczny, żadne czyszczenie pamięci, ani wywoływanie destruktorów nie następuje. Zwolnione miejsce zostanie po prostu nadpisana prędej przy później przy wywołaniu append().
 		 * @return kopia najstarszego elementu z bufora.
 		 */
 		T take();
-		//int8_t take(T &rVal);
+
+		/**
+		 * To samo co take() ale zwarca wartość do pobieranego przez referencję obiektu val. Powinna być trochę szybsza niż take(), gdyż oszczędza na jednym kopiowaniu obiektu.
+		 * @param val do niego zostaje skopiowana wartość najstarszego elementu z bufora.
+		 */
+		void takeR(T &val);
+
 		/**
 		 * Sprawdza czy bufor jest pełen, tj czy wszystkie miejsca są zapełnione.
 		 * @return true jeśli bufor jest pełen.
@@ -135,6 +148,12 @@ void PCircBuffer<T,C>::next(uint8_t &val)
 template <class T, uint8_t C>
 void PCircBuffer<T,C>::append(T val)
 {
+	appendR(val);
+}
+
+template <class T, uint8_t C>
+void PCircBuffer<T,C>::appendR(T &val)
+{
 	next(head);
 	if(isFull())
 	{
@@ -145,7 +164,6 @@ void PCircBuffer<T,C>::append(T val)
 	}
 	container[head]=val;
 }
-
 
 #ifdef SIM
 	char txtbuff[100];
@@ -161,21 +179,28 @@ void PCircBuffer<T,C>::append(T val)
 #endif
 
 template <class T, uint8_t C>
-T PCircBuffer<T,C>::take()
+void PCircBuffer<T,C>::takeR(T &val)
 {
-	T ret;
 	if(!isEmpty())
 	{
-		ret = container[tail];
+		val = container[tail];
 	#ifdef SIM
 		someDelay(10);
 	#endif
 		next(tail);
 		len--;
 	} else {
-		ret = emptyRet;
+		val = emptyRet;
 		error_occured |= ERROR_NOMORE;
 	}
+}
+
+template <class T, uint8_t C>
+T PCircBuffer<T,C>::take()
+{
+	T ret;
+
+	takeR(ret);
 
 	return ret;
 }
